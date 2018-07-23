@@ -2,7 +2,7 @@
 
 ## What is kssh
 
-Lightweight Terminal Beautifier. Alternative tool for zsh.
+Lightweight Terminal Beautifier with Git Notifier. Alternative tool for zsh.
 
 ![Kssh theme](https://user-images.githubusercontent.com/10723424/43073742-442911b6-8e98-11e8-9480-17e0f33c74a8.png)
 

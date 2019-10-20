@@ -49,4 +49,16 @@ function git_statuses {
 parse_git_branch() {
   git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ ➤ git:\1/'
 }
+
+# Use PS1 if your default shell is BASH.
 export PS1="\[\033[32m\]\u\[\033[0;30m\]@\h:\[\033[0;34m\]\W\[\033[0;35m\]\$(parse_git_branch)\$(git_statuses)\[\033[00m\] ❯❯❯ \[$RESET\]"
+
+# Use Prompt if your default shell is ZSH.
+set_prompt () {
+  PROMPT="%F{green}%n%f%F{white}@%m:%f%F{blue}%.%f%F{magenta}$(parse_git_branch)%f$(git_statuses) %F{green}❯❯❯%f "
+}
+set_prompt
+
+precmd() {
+  set_prompt # Reset Prompt before executing commands.
+}
